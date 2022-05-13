@@ -1,0 +1,219 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --background-color: #081017;
+    --primary-color: #0f1923;
+    --secondary-color: #ff4655;
+}
+
+body {
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 10px;
+}
+
+.row {
+    background-color: #0e1923;
+    width: 90%;
+}
+
+.red {
+    color: var(--secondary-color);
+}
+
+.white {
+    color: #fff;
+}
+
+/* weapons-info */
+.weapons-info {
+    font-family: "Arvo", serif;
+    font-family: "Rubik", cursive;
+    background-color: #323c44;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    border: none;
+    z-index: 0;
+    overflow: hidden;
+    border: 1px solid white;
+}
+
+.weapons-info::before {
+    content: " ";
+    background-color: var(--secondary-color);
+    width: 100%;
+    height: 130px;
+    /* clip-path: polygon(100% 0, 0 0, 100% 100%); */
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+}
+
+/* intro */
+.intro {
+    text-align: center;
+}
+
+#weapons-name {
+    color: #fff;
+    font-size: 50px;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 7px;
+}
+
+#displayIcon {
+    transform: scale(0.9);
+}
+/* intro- END */
+
+h5 {
+    font-size: 16px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.info {
+    margin: 0 10px 0 10px;
+    height: 65vh;
+    overflow-y: scroll;
+}
+
+.info::-webkit-scrollbar {
+    display: none;
+}
+
+/* header */
+.header {
+    background-image: url(/img/bg.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: translateX(2%);
+    height: 130px;
+}
+#logo {
+    width: 100px;
+    height: auto;
+    margin: 20px;
+}
+
+#logo-text {
+    color: white;
+    font-family: "Rubik", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    transform: translateX(-10px);
+    display: inline;
+}
+
+/* weapons */
+.left {
+    width: 100%;
+    height: 90vh;
+}
+
+#list {
+    height: calc(100vh - 200px);
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#list::-webkit-scrollbar {
+    display: none;
+}
+
+.weapon {
+    width: calc(100vw / 5);
+    height: 150px;
+    border: 1px solid #bdbcb7;
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weapon::before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 0.5rem;
+    width: 0.5rem;
+    top: 0;
+    left: 0;
+    background-color: #ff4655;
+    z-index: 100;
+}
+
+.weapon::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--secondary-color);
+    z-index: 2;
+    opacity: 0;
+    transition: transform 0.35s ease-out, opacity 0.3s linear,
+        height 0.4s ease-out, -webkit-transform 0.35s ease-out;
+}
+
+.weapon-name {
+    position: absolute;
+    color: white;
+    font-family: rubik;
+    font-weight: 500;
+    font-size: 30px;
+    z-index: 100;
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.weapon:hover::after {
+    opacity: 0.7;
+}
+
+.weapon:hover::before {
+    background-color: white;
+}
+
+.weapon:hover .weapon-display {
+    transform: scale(0.9);
+}
+
+.weapon:hover .weapon-name {
+    opacity: 1;
+}
+
+.weapon-display {
+    max-width: 90%;
+    max-height: 90%;
+    z-index: 1;
+    transition: transform 0.3s;
+}
+
+/* footer */
+.footer {
+    width: 100%;
+    padding: 0 40px 0 30px;
+}
+
+.footer p {
+    font-size: 16px;
+}
